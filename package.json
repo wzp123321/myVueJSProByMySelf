@@ -14,7 +14,8 @@
  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server",
+    "build": "webpack --progress --colors",
+    "dev": "webpack-dev-server --progress --colors",
     "start": "npm run dev"
   },
   "author": "zpwan",
