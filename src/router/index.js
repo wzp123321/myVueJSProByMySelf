@@ -2,9 +2,10 @@ import Vue from "vue";
 import Router from "vue-router";
 
 // 引入模块
-import Views from "../views/index.vue";
+const Views = resolve=>require(['../views/index.vue'],resolve)
 
 const News = resolve=>require(['../news/index.vue'],resolve)
+
 
 Vue.use(Router);
 

@@ -16,11 +16,6 @@ export default {
             el: document.createElement('div')
         });
 		
-        /*
-        *el： https://cn.vuejs.org/v2/api/#el
-        *loading.vue中的template模板内容将会替换挂载的元素。挂载元素的内容都将被忽略。 *所以Profile.$el最终是template里面的内容
-        */
-        
         //插入到 document.body 
         document.body.appendChild(Profile.$el);
 		

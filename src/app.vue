@@ -25,8 +25,9 @@ export default {
         <Button>
           <router-link to="/news">news</router-link>
         </Button>
-        <router-view></router-view>
+          <router-view></router-view>
       </div>
+    
     );
   }
 };

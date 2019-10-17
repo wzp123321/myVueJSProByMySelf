@@ -14,6 +14,7 @@ Vue.use(myLoading,{
 })
 
 
+
 new Vue({
     router,
     render:h=>h(App)

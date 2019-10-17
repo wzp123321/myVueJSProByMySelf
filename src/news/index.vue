@@ -17,6 +17,8 @@ export default {
     computed:mapGetters(["count"]),
     methods:{
         ...mapActions(['getCountAdd','getCountReduce'])
+    },
+    created(){
     }
 }
 </script>
