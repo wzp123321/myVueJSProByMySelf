@@ -24,7 +24,16 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/, // 不处理这两个文件夹里的内容
                 loader: 'babel-loader'
-            }
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {},
+                  },
+                ],
+              },
         ]
     },
     resolve: {
