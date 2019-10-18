@@ -12,7 +12,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 // 测试loading插件
-import myLoading from './plugins/gifloading/index'
+import myLoading from './plugins/newloading/index'
 Vue.use(myLoading)
 
 // 配置NProgress进度条选项  —— 动画效果
