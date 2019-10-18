@@ -27,13 +27,20 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/,
-                use: [
-                  {
+                use: [{
                     loader: 'file-loader',
                     options: {},
-                  },
-                ],
-              },
+                }, ],
+            },
+            {
+                test: /\.less$/,
+                use: ['style-loader', {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1
+                    }
+                }, 'less-loader']
+            },
         ]
     },
     resolve: {

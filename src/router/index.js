@@ -1,28 +1,44 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-// 引入模块
-const Views = resolve=>require(['../views/index.vue'],resolve)
 
-const News = resolve=>require(['../news/index.vue'],resolve)
+// 登录
+const Signin = resolve => require(['../pages/signin.vue'], resolve)
+// 首页
+const Dashboard = resolve => require(['../pages/dashboard.vue'], resolve)
+// 404
+const NotFound = resolve => require(['../pages/404.vue'], resolve)
+
 
 
 Vue.use(Router);
 
-const routes = [
-    {
-        path:"/view",
-        name:"views",
-        component:Views
-    },{
-        path:"/news",
-        name:"news",
-        component:News
+const routes = [{
+        path: "/",
+        redirect: "/dashaboard"
     },
-  ];
-  
-  const router = new Router({routes});
+    {
+        path: "/dashaboard",
+        component: Dashboard,
+        meta:{
+            name:"首页"
+        }
+    },
+    {
+        path: "/signin",
+        component: Signin,
+        meta:{
+            name:"登录界面"
+        }
+    },{
+        path:"*",
+        component:NotFound
+    }
+];
 
-  export default  router
+const router = new Router({
+    routes
+});
 
 
+export default router
