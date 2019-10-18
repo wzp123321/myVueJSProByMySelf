@@ -30,7 +30,7 @@
           />
         </FormItem>
         <FormItem class="loginbtn" :label-col="{span:4}" :wrapper-col="{span:20}">
-          <a-button type="primary" :loading="loading" html-type="submit">登录</a-button>
+          <a-button type="primary" html-type="submit">登录</a-button>
         </FormItem>
       </Form>
     </div>
@@ -52,20 +52,20 @@ export default {
   },
   data() {
     return {
-      loading: false,
       form: this.$form.createForm(this)
     };
   },
   methods: {
     ...mapActions(["setUserToken"]),
     handleSubmit(e) {
-      this.loading = true;
+      this.$myLoading.open();
+
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
           setTimeout(() => {
             this.setUserToken("265b3062-ab07-4913-ab89-f154d007d484");
-            this.loading = false;
+            this.$myLoading.hide();
             this.$router.push("/");
           }, 1000);
         }
