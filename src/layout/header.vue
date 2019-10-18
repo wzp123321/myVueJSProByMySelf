@@ -16,7 +16,7 @@
             <a href="http://www.taobao.com/">个人中心</a>
           </a-menu-item>
           <a-menu-item key="2">
-            <a href="http://www.taobao.com/">项目地址</a>
+            <a href="https://github.com/wzp123321/myVueJSProByMySelf.git">项目地址</a>
           </a-menu-item>
           <a-menu-divider />
           <a-menu-item key="3" @click="signout">退出登录</a-menu-item>
