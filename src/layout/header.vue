@@ -29,6 +29,8 @@
 import { Layout, Icon, Dropdown, Menu } from "ant-design-vue";
 import store from "../store/index.js";
 import { mapActions } from "vuex";
+
+
 export default {
   name: "Header",
   store,
@@ -38,7 +40,7 @@ export default {
     "a-dropdown": Dropdown,
     "a-menu": Menu,
     "a-menu-item": Menu.Item,
-    "a-menu-divider": Menu.Divider
+    "a-menu-divider": Menu.Divider,
   },
   props: {
     collapsed: {

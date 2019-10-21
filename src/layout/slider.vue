@@ -1,32 +1,28 @@
 <template>
-    <a-layout-sider :trigger="null" collapsible v-model="collapsed">
-      <div class="logo" />
-      <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']">
-        <a-menu-item key="1">
-          <a-icon type="user" />
-          <span>nav 1</span>
+  <a-layout-sider :trigger="null" collapsible v-model="collapsed">
+    <div class="logo" />
+    <a-menu theme="dark" mode="inline" v-for="(siderItem,index) in datas" :key="index+siderItem">
+      <a-menu-item v-if="siderItem.children.length===0">
+        <i :class="`iconfont ${siderItem.icon}`"></i>
+        <span @click="$router.push(siderItem.path)">{{siderItem.title}}</span>
+      </a-menu-item>
+      <a-sub-menu v-else>
+        <span slot="title">
+          <i :class="`iconfont ${siderItem.icon}`"></i>
+          <span>{{siderItem.title}}</span>
+        </span>
+        <a-menu-item v-for="(siderChildItem,idx) in siderItem.children" :key="siderChildItem+idx">
+          <i :class="`iconfont ${siderChildItem.icon}`"></i>
+          <span @click="$router.push(siderChildItem.path)">{{siderChildItem.title}}</span>
         </a-menu-item>
-        <a-menu-item key="2">
-          <a-icon type="video-camera" />
-          <span>nav 2</span>
-        </a-menu-item>
-        <a-menu-item key="3">
-          <a-icon type="upload" />
-          <span>nav 3</span>
-        </a-menu-item>
-      </a-menu>
-    </a-layout-sider>
+      </a-sub-menu>
+    </a-menu>
+  </a-layout-sider>
 </template>
 <script>
-import { Layout, Menu, Icon } from "ant-design-vue";
+import siders from "../assets/js/sider.js";
 export default {
   name: "Sider",
-  components: {
-    "a-layout-sider": Layout.Sider,
-    "a-menu": Menu,
-    "a-menu-item": Menu.Item,
-    "a-icon": Icon
-  },
   props: {
     collapsed: {
       type: Boolean,
@@ -34,7 +30,12 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      datas: []
+    };
+  },
+  created() {
+    this.datas = siders;
   }
 };
 </script>

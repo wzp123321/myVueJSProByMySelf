@@ -8,6 +8,8 @@ const Signin = resolve => require(['../pages/signin.vue'], resolve)
 const Dashboard = resolve => require(['../pages/dashboard.vue'], resolve)
 // 404
 const NotFound = resolve => require(['../pages/404.vue'], resolve)
+// 401
+const PageError = resolve => require(['../pages/401.vue'], resolve)
 
 
 
@@ -20,19 +22,34 @@ const routes = [{
     {
         path: "/dashaboard",
         component: Dashboard,
-        meta:{
-            name:"首页"
+        meta: {
+            name: "首页"
         }
     },
     {
         path: "/signin",
         component: Signin,
-        meta:{
-            name:"登录界面"
+        meta: {
+            name: "登录界面"
         }
-    },{
-        path:"*",
-        component:NotFound
+    },
+    {
+        path: "/error/404",
+        component: NotFound,
+        meta: {
+            name: "404页面"
+        }
+    },
+    {
+        path: "/error/401",
+        component: PageError,
+        meta: {
+            name: "401页面"
+        }
+    },
+    {
+        path: "*",
+        component: NotFound
     }
 ];
 
